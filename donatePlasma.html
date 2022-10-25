@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Donate Plasma</title>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase.js"></script>
+
+  <style type="text/css">
+    body {
+  background-image: url("images/background-img.jpg");
+}
+  </style>
+
+</head>
+<body>
+<script type="text/javascript">
+    $(window).on('load', function() {
+        $('#myModal').modal('show');
+    });
+
+</script>
+
+
+<div class="modal fade" id="myModal">
+  <div class="modal-dialog  modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Who can Donate Plasma!</h4>    
+          <button type="button" class="close" data-dismiss="modal" onclick="location.href='Plasma.html';" aria-hidden="true">×</button>
+        </div><div class="container"></div>
+        <div class="modal-body">
+          <p>If you have fully recovered from COVID-19, you may be able to help patients currently fighting the infection by donating your plasma. Because you fought the infection, your plasma now contains COVID-19 antibodies. These antibodies provided one way for your immune system to fight the virus when you were sick, so your plasma may be able to be used to help others fight off the disease.</p><br>
+
+        <p>I feel proud & responsible to contribute back to human survival with Plasma donation and help COVID-19 patients</p>
+          
+        </div>
+        <div class="modal-footer border-top-0 d-flex justify-content-center">
+          <a data-toggle="modal" data-dismiss="modal" href="#myModal2" class="btn btn-primary">Donate Plasma</a>
+        </div>
+      </div>
+    </div>
+</div>
+<div class="modal fade" id="myModal2" data-backdrop="static">
+  <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Declaration</h4>
+          <button type="button" class="close" data-dismiss="modal" onclick="location.href='Plasma.html';" aria-hidden="true">×</button>
+        </div><div class="container"></div>
+        <div class="modal-body">
+          <div class="checkbox">
+          <label>
+            <input type="checkbox"> I here by declare that I am willing to donate Plasma to save Covid patients.
+        </label>
+        </div>
+        </div>
+        <div class="modal-footer border-top-0 d-flex justify-content-center">
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-dismiss="modal" href="#form" disabled="disabled">PROCEED TO REGISTER AS DONOR</button>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+<!--Phone number-->
+<div class="modal fade" id="form" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header border-bottom-0">
+        <h5 class="modal-title" id="exampleModalLabel">Register as Donor</h5>
+        <button type="button" class="close" data-dismiss="modal" onclick="location.href='Plasma.html';" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="phone">Please enter your phone number to verify</label>
+             <input type="tel" class="form-control" id="number" placeholder="Phone Number" value="+91" maxlength="13" pattern="[+91]{3}[0-9]{10}" required>
+              <div class="invalid-feedback">Please enter valid phone number.</div>
+              <br><br>
+            <div id="recaptcha-container"></div>
+    
+          </div>
+        </div>
+        <div class="modal-footer border-top-0 d-flex justify-content-center">
+          <button type="submit" id="send" data-toggle="modal" data-dismiss="modal" onclick="phoneAuth();" class="btn btn-success">SEND OTP</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!--OTP Verification-->
+<div class="modal fade" id="form2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header border-bottom-0">
+        <h5 class="modal-title" id="exampleModalLabel">Register as Donor</h5>
+        <button type="button" class="close" data-dismiss="modal" onclick="location.href='Plasma.html';" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form>
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="otp">An OTP has been sent to your registered mobile</label>
+            <input type="text" class="form-control" id="verificationCode" placeholder="OTP" maxlength="6" pattern="[0-9]{6}" required>
+            <div class="invalid-feedback">Please enter valid OTP</div>
+          </div>
+        </div>
+        <div class="modal-footer border-top-0 d-flex justify-content-center">
+          <button type="button" data-toggle="modal" data-dismiss="modal" onclick="codeverify();" class="btn btn-success"  >VERIFY OTP</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!--
+<div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable" role="document">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalScrollableTitle">Register as Donor</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+    <div class="modal-body">
+    <form class="needs-validation" method="post" novalidate>
+        <div class="form-group">
+            <label>Name</label>
+            <input type="text"  pattern="^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$" class="form-control" id="nameField" placeholder="Name" required>
+            <div class="invalid-feedback">Please enter your name</div>
+        </div>
+
+        <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>Blood Group</label>
+            <select class="form-control" id="bloodgroup" aria-label="Default select example">
+            <option selected>A+</option>
+            <option value="1">A-</option>
+            <option value="2">B+</option>
+            <option value="3">B-</option>
+            <option value="4">AB+</option>
+            <option value="5">AB-</option>
+            <option value="6">O+</option>
+            <option value="7">O-</option>
+            </select>
+            <div class="invalid-feedback">Please select your blood group </div>
+        </div>
+        
+        <div class="form-group col-md-6">
+            <label>Gender</label>
+            <select class="form-control" id="gender" aria-label="Default select example">
+            <option selected>Male</option>
+            <option value="1">Female</option>
+            </select>
+            <div class="invalid-feedback">Please select your gender</div>
+        </div>
+        </div>
+
+        <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>Age</label>
+            <input type="text" pattern="[0-9]{2}" id="ageField" class="form-control" placeholder="Age" maxlength="2" required>
+            <div class="invalid-feedback">Please enter a valid age</div>
+        </div>
+
+        <div class="form-group col-md-6">
+            <label>Recovery Date</label>
+            <input type="date" class="form-control" id="start" name="start" value="2021-04-05"
+       min="2021-04-05" max="2021-08-05">
+            <div class="invalid-feedback">Please enter a recovery date</div>
+        </div>
+      </div>
+
+        <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>Phone</label>
+            <input type="text" pattern="[789][0-9]{9}" maxlength="10" class="form-control" id="phone" placeholder="Phone" required>
+            <div class="invalid-feedback">Please enter a valid phone number</div>
+        </div>
+
+        <div class="form-group col-md-6">
+            <label>Alternate Phone</label>
+            <input type="text" pattern="[789][0-9]{9}" maxlength="10" class="form-control" id="phone2" placeholder="Alternate Phone" required>
+            <div class="invalid-feedback">Please enter a valid phone number</div>
+        </div>
+      </div>
+
+        <div class="form-group">
+            <label>Email</label>
+            <input type="text" pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$" class="form-control" id="email" placeholder="Email" required>
+            <div class="invalid-feedback">Please enter a valid email address</div>
+        </div>
+
+        <div class="form-group">
+            <label>Your Locality</label>
+             <input type="text" class="form-control rounded-0" id="address" required>
+            <div class="invalid-feedback">Please enter your local address</div>
+        </div>
+
+        <button id="addBtn" type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+
+
+     <script>
+        // Self-executing function
+        (function() {
+            'use strict';
+            window.addEventListener('load', function() {
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.getElementsByClassName('needs-validation');
+                // Loop over them and prevent submission
+                var validation = Array.prototype.filter.call(forms, function(form) {
+                    form.addEventListener('submit', function(event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                        const firebaseConfig = {
+  apiKey: "AIzaSyBIb4a8tynv4206X1bstUtd0dyX4DlSDkg",
+  authDomain: "pune-covid-care.firebaseapp.com",
+  databaseURL: "https://pune-covid-care-default-rtdb.firebaseio.com",
+  projectId: "pune-covid-care",
+  storageBucket: "pune-covid-care.appspot.com",
+  messagingSenderId: "318732941809",
+  appId: "1:318732941809:web:ef9d4a718d4beaec112c50",
+  measurementId: "G-YPYP520N4W"
+};
+firebase.initializeApp(firebaseConfig);
+
+
+addBtn.addEventListener('click',(e) => {
+  e.preventDefault();
+  firebase.database().ref("Plasma Donors").child(phone.value).set({
+    Name: document.getElementById("nameField").value,
+    Age: document.getElementById("ageField").value,
+    Gender: document.getElementById("gender").value,
+    BloodGroup: document.getElementById("bloodgroup").value,
+    RecoveryDate: document.getElementById("start").value,
+    Phone: document.getElementById("phone").value,
+    AltPhone: document.getElementById("phone2").value,
+    Email: document.getElementById("email").value,
+    Locality: document.getElementById("address").value
+  });
+
+});
+                    }, false);
+                });
+            }, false);
+        })();
+    </script> 
+</div>
+-->
+</body>
+
+<script type="text/javascript">
+  $(".modal").on('show.bs.modal', lock);
+$("#myModal2 [type=checkbox]").click(lock);
+$("#myModal2 .btn-primary").click(function() {
+  $("#MyForm").submit();
+});
+
+function lock() {
+  var flag = $("#myModal2 [type=checkbox]").prop('checked');
+  if (!flag) {
+    $("#myModal2 .btn-primary").attr("disabled", "disabled");
+  } else {
+    $("#myModal2 .btn-primary").removeAttr("disabled");
+  }
+}
+</script>
+
+<script>
+
+  const firebaseConfig = {
+  apiKey: "AIzaSyBIb4a8tynv4206X1bstUtd0dyX4DlSDkg",
+  authDomain: "pune-covid-care.firebaseapp.com",
+  databaseURL: "https://pune-covid-care-default-rtdb.firebaseio.com",
+  projectId: "pune-covid-care",
+  storageBucket: "pune-covid-care.appspot.com",
+  messagingSenderId: "318732941809",
+  appId: "1:318732941809:web:ef9d4a718d4beaec112c50",
+  measurementId: "G-YPYP520N4W"
+};
+firebase.initializeApp(firebaseConfig);
+
+  window.onload=function () {
+  render();
+};
+function render() {
+    window.recaptchaVerifier=new firebase.auth.RecaptchaVerifier('recaptcha-container');
+    recaptchaVerifier.render();
+}
+function phoneAuth() {
+
+    //get the number
+    var number=document.getElementById('number').value;
+    //phone number authentication function of firebase
+    //it takes two parameter first one is number,,,second one is recaptcha
+    firebase.auth().signInWithPhoneNumber(number,window.recaptchaVerifier).then(function (confirmationResult) {
+        //s is in lowercase
+        window.confirmationResult=confirmationResult;
+        coderesult=confirmationResult;
+        console.log(coderesult);
+        $('#form2').modal('show');
+    }).catch(function (error) {
+      $('#form').modal('show');
+        alert(error.message);
+        
+    });
+}
+function codeverify() {
+    var code=document.getElementById('verificationCode').value;
+    coderesult.confirm(code).then(function (result) { 
+        var user=result.user;
+        console.log(user);
+        window.open("registerForm.html", "_self");
+//$('#register').modal('show');
+    }).catch(function (error) {
+      $('#form2').modal('show');
+        alert(error.message);
+    });
+}
+</script>
+</html>

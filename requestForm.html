@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Request Plasma</title>
+</head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+<style>
+    .bs-example{
+        margin: 20px;        
+    }
+</style>
+<body>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable">
+  Verify OTP
+</button>
+
+<div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalScrollableTitle">Register as Recipient</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="bs-example">
+    <form action="/examples/actions/confirmation.php" class="needs-validation" method="post" novalidate>
+        <div class="form-group">
+            <label for="inputEmail">Requester Name</label>
+            <input type="email" class="form-control" id="inputEmail" placeholder="Name" required>
+            <div class="invalid-feedback">Please enter a valid email address.</div>
+        </div>
+
+        <div class="form-group">
+            <label for="inputEmail">Patient Name</label>
+            <input type="email" class="form-control" id="inputEmail" placeholder="Name" required>
+            <div class="invalid-feedback">Please enter a valid email address.</div>
+        </div>
+
+        <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="inputEmail">Blood Group</label>
+            <select class="form-control" aria-label="Default select example">
+            <option selected>A+</option>
+            <option value="1">A-</option>
+            <option value="2">B+</option>
+            <option value="3">B-</option>
+            <option value="4">AB+</option>
+            <option value="5">AB-</option>
+            <option value="6">O+</option>
+            <option value="7">O-</option>
+            </select>
+            <div class="invalid-feedback">Please enter your password to continue.</div>
+        </div>
+        
+        <div class="form-group col-md-6">
+            <label for="inputEmail">Gender</label>
+            <select class="form-control" aria-label="Default select example">
+            <option selected>Male</option>
+            <option value="1">Female</option>
+            </select>
+            <div class="invalid-feedback">Please enter your password to continue.</div>
+        </div>
+        </div>
+
+        <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="inputEmail">Age</label>
+            <input type="email" class="form-control" id="inputEmail" placeholder="Age" required>
+            <div class="invalid-feedback">Please enter a valid email address.</div>
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="inputEmail">Date of Requirement</label>
+            <input type="date" class="form-control" id="start" name="start" value="2021-04-05"
+       min="2021-04-05" max="2021-08-05">
+            <div class="invalid-feedback">Please enter a valid email address.</div>
+        </div>
+      </div>
+
+        <div class="form-group">
+            <label for="inputEmail">Hospital Name</label>
+            <input type="email" class="form-control" id="inputEmail" placeholder="Name" required>
+            <div class="invalid-feedback">Please enter a valid email address.</div>
+        </div>
+
+        <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="inputEmail">Phone</label>
+            <input type="tel" maxlength="10" class="form-control" id="inputEmail" placeholder="Phone" required>
+            <div class="invalid-feedback">Please enter a valid email address.</div>
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="inputEmail">Alternate Phone</label>
+            <input type="tel" maxlength="10" class="form-control" id="inputEmail" placeholder="Alternate Phone" required>
+            <div class="invalid-feedback">Please enter a valid email address.</div>
+        </div>
+      </div>
+
+        <div class="form-group">
+            <label for="inputEmail">Email</label>
+            <input type="email" class="form-control" id="inputEmail" placeholder="Email" required>
+            <div class="invalid-feedback">Please enter a valid email address.</div>
+        </div>
+
+        <div class="form-group">
+            <label for="inputEmail">Illness</label>
+            <input type="text" class="form-control" id="inputEmail" placeholder="Name" required>
+            <div class="invalid-feedback">Please enter a valid email address.</div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Sign in</button>
+    </form>
+     <script>
+        // Self-executing function
+        (function() {
+            'use strict';
+            window.addEventListener('load', function() {
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.getElementsByClassName('needs-validation');
+                // Loop over them and prevent submission
+                var validation = Array.prototype.filter.call(forms, function(form) {
+                    form.addEventListener('submit', function(event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+        })();
+    </script>
+    </div>
+</div>
+
+</body>
+</html>

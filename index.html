@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pune Covid Care</title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+    
+<!-- header section starts  -->
+
+<header>
+
+    <a href="index.html" style="text-decoration:none;" class="logo">Pune c<span class="fas fa-virus"></span>vid Care</a>
+
+    <div id="menu" class="fas fa-bars"></div>
+
+    <center>
+    <nav class="navbar">
+        <a class="active" href="#home">home</a>
+        <a href="#prevent">prevent</a>
+        <a href="#symptoms">symptoms</a>
+        <a href="#precautions">precautions</a>
+        <a href="#hand-wash">hand-wash</a>
+    </nav>
+    </center>
+    <a href = "mailto:pimpalgaonkaranagha2@gmail.com?subject = Feedback&body = Message">
+    <img src="images/feedback.png" alt="feedback">
+    </a>
+
+</header>
+
+<!-- header section ends -->
+
+<!-- home section starts  -->
+
+<section class="home" id="home">
+<center>
+  <div class="card-group" style="margin-bottom: -2rem;">
+
+    <div class="card bg-primary">
+      <div class="card-body text-center">
+        <h4 class="card-text">Confirmed</h4>
+        <h2 id="confirmed"></h2>
+      </div>
+    </div>
+
+    <div class="card bg-warning">
+      <div class="card-body text-center">
+        <h4 class="card-text">Active</h4>
+        <h2 id="active"></h2>
+      </div>
+    </div>
+
+    <div class="card bg-success">
+      <div class="card-body text-center">
+        <h4 class="card-text">Recovered</h4>
+        <h2 id="recovered"></h2>
+      </div>
+    </div> 
+
+    <div class="card bg-danger">
+      <div class="card-body text-center">
+        <h4 class="card-text">Deceased</h4>
+        <h2 id="deceased"></h2>
+      </div>
+    </div>
+    
+  </div>
+</center>
+    <div class="content">
+        
+        <h1>#PuneFightsCorona</h1>
+        <h3>stay home, stay safe</h3>
+		<a href="beds.html" class="btn">Pune Covid Information</a>
+    </div>
+
+</section>
+
+<!-- home section ends -->
+
+
+<script>
+    
+fetch('https://api.covid19india.org/state_district_wise.json').then( (apidata) => {
+        console.log(apidata);
+        return apidata.json();
+}).then((actualdata) => {
+    const mydata1 = (actualdata.Maharashtra.districtData.Pune.active);
+    const mydata2 = (actualdata.Maharashtra.districtData.Pune.confirmed);
+    const mydata3 = (actualdata.Maharashtra.districtData.Pune.deceased);
+    const mydata4 = (actualdata.Maharashtra.districtData.Pune.recovered);
+    const mydata5 = (actualdata.Maharashtra.districtData.Pune.migratedother);
+
+    document.getElementById('active').innerHTML = mydata1;
+    document.getElementById('confirmed').innerHTML = mydata2;
+    document.getElementById('deceased').innerHTML = mydata3;
+    document.getElementById('recovered').innerHTML = mydata4;
+    document.getElementById('migratedother').innerHTML = mydata5;
+
+}).catch((error) => {
+    console.log(error);
+});
+
+</script>
+
+
+<!-- prevent section starts  -->
+
+<section class="prevent" id="prevent">
+
+    <h1 class="heading"> how to prevent virus </h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <img src="images/pre-1.png" alt="">
+            <h3>wash your place</h3>
+            <p>Cleaning with a household cleaner that contains detergent reduces the amount of germs on surfaces and decreases risk of infection from surfaces. cleaning alone removes most virus particles.</p>
+        </div>
+
+        <div class="box">
+            <img src="images/pre-2.png" alt="">
+            <h3>maintain distance</h3>
+            <p>Maintain at least 1 metre distance in market places, medical stores, etc. Avoid shaking hands and hugging as a matter of greeting. Avoid non-essential social gathering at home. </p>
+        </div>
+
+        <div class="box">
+            <img src="images/pre-3.png" alt="">
+            <h3>don't touch face</h3>
+            <p>To reduce the spread of covid-19 experts recommend that you not touch your face because the virus is transmitted through nose and eyes. A face mask can act as a reminder to not touch your face.</p>
+        </div>
+
+        <div class="box">
+            <img src="images/pre-4.png" alt="">
+            <h3>wash your hand</h3>
+            <p>Wash your hands with soap and running water when hands are visibly dirty. If your hands are not visibly dirty, frequently clean them by using alcohol-based hand rub or soap and water.</p>
+        </div>
+
+        <div class="box">
+            <img src="images/pre-5.png" alt="">
+            <h3>Cover your sneeze</h3>
+            <p>Covering your mouth when you sneeze with your elbow or tissue will greatly reduce the number of germs that are able to spread to people and objects around you.</p>
+        </div>
+
+        <div class="box">
+            <img src="images/pre-6.png" alt="">
+            <h3>wear a mask</h3>
+            <p>Masks should be used as part of comprehensive strategy of measures to suppress transmission and save lives. Make sure it covers both your nose, mouth and chin.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- prevent section ends -->
+
+<!-- symptoms section starts  -->
+
+<section class="symptoms" id="symptoms">
+
+    <h1 class="heading">covid-19 symptoms</h1>
+
+    <div class="column">
+
+        <div class="main-image">
+            <img src="images/main-symp-img.png" alt="">
+        </div>
+
+        <div class="box-container">
+
+            <div class="box">
+                <img src="images/symp-a.png" alt="">
+                <h3>dry cough</h3>
+            </div>
+
+            <div class="box">
+                <img src="images/symp-b.png" alt="">
+                <h3>sore throat</h3>
+            </div>
+
+            <div class="box">
+                <img src="images/symp-c.png" alt="">
+                <h3>cold</h3>
+            </div>
+
+            <div class="box">
+                <img src="images/symp-d.png" alt="">
+                <h3>fever</h3>
+            </div>
+
+            <div class="box">
+                <img src="images/symp-e.png" alt="">
+                <h3>headache</h3>
+            </div>
+
+            <div class="box">
+                <img src="images/symp-f.png" alt="">
+                <h3>vomiting</h3>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- symptoms section ends -->
+
+<!-- precautions section starts  -->
+
+<section class="precautions" id="precautions">
+
+    <h1 class="heading">take precautions against covid-19</h1>
+
+    <div class="column">
+
+        <div class="box-container">
+
+            <h3 class="title">things you should DO</h3>
+
+            <div class="box">
+                <img src="images/do-img1.png" alt="">
+                <div class="info">
+                    <h3>wash your hand</h3>
+                    <p>Germs from unwashed hands can be transferred to other objects, like handrails, table tops, or toys, and then transferred to another person's hands.</p>
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="images/do-img2.png" alt="">
+                <div class="info">
+                    <h3>always wear a mask</h3>
+                    <p>For indoor public settings such as busy shopping centres, religious buildings, restaurants, schools and public transport, you should wear a mask.</p>
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="images/do-img3.png" alt="">
+                <div class="info">
+                    <h3>stay home during fever</h3>
+                    <p>You are required to isolate yourself for at least 10 days from when your symptoms began and at least 24 hours after your fever has gone and your symptoms have improved.
+</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="box-container">
+
+            <h3 class="title">things you should NOT DO</h3>
+
+            <div class="box">
+                <img src="images/dont-img1.png" alt="">
+                <div class="info">
+                    <h3>avoid close contact with animals</h3>
+                    <p>Wash your hands and make sure children wash hands after contact with pets. Avoid touching animals with bald spots.</p>
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="images/dont-img2.png" alt="">
+                <div class="info">
+                    <h3>avoid close contact with peoples</h3>
+                    <p>Avoid close contact with people who are sick. If possible, maintain 6 feet between the person who is sick and other household members.</p>
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="images/dont-img3.png" alt="">
+                <div class="info">
+                    <h3>avoid crowded area</h3>
+                    <p>Avoid shaking hands and hugging as a matter of greeting. Avoid non-essential social gathering at home.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- precautions section ends -->
+
+<!-- hand-wash section starts  -->
+
+<section class="hand-wash" id="hand-wash">
+
+    <h1 class="heading">how to wash hand properly</h1>
+
+    <div class="column">
+
+        <div class="box-container">
+
+            <div class="box">
+                <img src="images/wash-a.png" alt="">
+                <h3>water and soap</h3>
+            </div>
+
+            <div class="box">
+                <img src="images/wash-b.png" alt="">
+                <h3>palm to palm</h3>
+            </div>
+
+            <div class="box">
+                <img src="images/wash-c.png" alt="">
+                <h3>Between Fingurs</h3>
+            </div>
+
+            <div class="box">
+                <img src="images/wash-d.png" alt="">
+                <h3>Focus on Thumbs</h3>
+            </div>
+
+            <div class="box">
+                <img src="images/wash-e.png" alt="">
+                <h3>Back of Hands</h3>
+            </div>
+
+            <div class="box">
+                <img src="images/wash-f.png" alt="">
+                <h3>Focus on wrist</h3>
+            </div>
+
+        </div>
+
+        <div class="main-image">
+            <img src="images/main-wash-img.png" alt="">
+        </div>
+
+    </div>
+
+</section>
+
+<!-- hand-wash section ends -->
+
+<!-- footer section starts  -->
+
+<div class="footer">
+
+    <div class="box-container">
+
+        <div class="box">
+            <h3>Important Note</h3>
+            <p>We do our best to provide real time accurate information however we heavily depend on external data for it. We cannot guarantee accuracy of the data. We urge visitors to verify the authenticity and accuracy on their own before taking any decisions.</p>
+        </div>
+
+        <div class="box">
+            <h3>quick links</h3>
+            <a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public">WHO Guidlines</a>
+            <a href="https://www.ayush.gov.in/ayush-guidelines.html">Ayush Guidelines</a>
+            <a href="https://www.pmc.gov.in/en/corona">PMC Covid-19</a>
+            <a href="https://selfregistration.cowin.gov.in/">Vaccine Registration</a>
+        </div>
+
+        <div class="box">
+            <h3>Get Updates</h3>
+            <a href="telegram.html" target="_blank">Vaccine Tracker Telegram</a>
+        </div>
+
+    </div>
+</div>
+
+<!-- footer section ends -->
+
+
+<!-- scroll top  -->
+
+<a href="#home" class="scroll-top">
+    <img src="images/scroll.png" alt="">
+</a>
+
+
+
+<!-- jquery cdn link  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<!-- custom js file link  -->
+<script src="js/script.js"></script>
+
+
+</body>
+</html>

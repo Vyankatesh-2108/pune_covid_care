@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Delete Record</title>
+</head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase.js"></script>
+
+
+    <style>
+body {
+  background-image: url("images/background-img.jpg");
+  background-repeat: no-repeat;
+}
+</style>
+
+<script type="text/javascript">
+    $(window).on('load', function() {
+        $('#form').modal('show');
+    });
+
+</script>
+
+<body>
+
+<!--Phone number-->
+<div class="modal fade" id="form" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header border-bottom-0">
+        <h5 class="modal-title" id="exampleModalLabel">Delete Record</h5>
+        <button type="button" class="close" data-dismiss="modal" onclick="location.href='Plasma.html';" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="phone">Please enter your phone number to verify</label>
+             <input type="text" class="form-control" id="number" placeholder="Phone Number" value="+91" maxlength="13" pattern="[+91]{3}[0-9]{10}" required>
+              <div class="invalid-feedback">Please enter valid phone number.</div>
+              <br><br>
+            <div id="recaptcha-container"></div>
+    
+          </div>
+        </div>
+        <div class="modal-footer border-top-0 d-flex justify-content-center">
+          <button type="submit" id="send" data-toggle="modal" data-dismiss="modal" onclick="phoneAuth();" class="btn btn-success">SEND OTP</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!--OTP Verification-->
+<div class="modal fade" id="form2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header border-bottom-0">
+        <h5 class="modal-title" id="exampleModalLabel">Delete Record</h5>
+        <button type="button" class="close" data-dismiss="modal" onclick="location.href='Plasma.html';" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form>
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="otp">An OTP has been sent to your registered mobile</label>
+            <input type="text" class="form-control" id="verificationCode" placeholder="OTP" maxlength="6" pattern="[0-9]{6}" required>
+            <div class="invalid-feedback">Please enter valid OTP</div>
+          </div>
+        </div>
+        <div class="modal-footer border-top-0 d-flex justify-content-center">
+          <button type="button" data-toggle="modal" data-dismiss="modal" onclick="codeverify();" class="btn btn-success"  >VERIFY OTP</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header border-bottom-0">
+        <h5 class="modal-title" id="exampleModalLabel">Delete Record</h5>
+        <button type="button" class="close" data-dismiss="modal" onclick="location.href='Plasma.html';" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form>
+        <div class="modal-body">
+          <div class="form-group">
+            <label>Click Below Button to delete your record!</label>
+            <br>
+            <button type="button" id="deleter" class="btn btn-danger">Delete Record</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+    const firebaseConfig = {
+  apiKey: "AIzaSyBIb4a8tynv4206X1bstUtd0dyX4DlSDkg",
+  authDomain: "pune-covid-care.firebaseapp.com",
+  databaseURL: "https://pune-covid-care-default-rtdb.firebaseio.com",
+  projectId: "pune-covid-care",
+  storageBucket: "pune-covid-care.appspot.com",
+  messagingSenderId: "318732941809",
+  appId: "1:318732941809:web:ef9d4a718d4beaec112c50",
+  measurementId: "G-YPYP520N4W"
+};
+firebase.initializeApp(firebaseConfig);
+
+window.onload=function () {
+render();
+};
+function render() {
+    window.recaptchaVerifier=new firebase.auth.RecaptchaVerifier('recaptcha-container');
+    recaptchaVerifier.render();
+}
+function phoneAuth() {
+
+    //get the number
+    var number=document.getElementById('number').value;
+    //phone number authentication function of firebase
+    //it takes two parameter first one is number,,,second one is recaptcha
+    firebase.auth().signInWithPhoneNumber(number,window.recaptchaVerifier).then(function (confirmationResult) {
+        //s is in lowercase
+        window.confirmationResult=confirmationResult;
+        coderesult=confirmationResult;
+        console.log(coderesult);
+        $('#form2').modal('show');
+    }).catch(function (error) {
+      $('#form').modal('show');
+        alert(error.message);
+        
+    });
+}
+function codeverify() {
+    var code=document.getElementById('verificationCode').value;
+    coderesult.confirm(code).then(function (result) { 
+        var user=result.user;
+        console.log(user);
+        //window.open("Plasma.html", "_self");
+    $('#delete').modal('show');
+    }).catch(function (error) {
+      $('#form2').modal('show');
+        alert(error.message);
+    });
+}
+
+var str,Phone;
+
+function ready(){
+    str = document.getElementById("number").value;
+    Phone = str.substring(3);
+    console.log("using substring =",str.substring(3));
+}
+
+document.getElementById('deleter').onclick = function() {
+   ready();
+   firebase.database().ref('Plasma Donors').child(Phone).remove();
+   if(confirm("Record Deleted Successfully!")) document.location = 'Plasma.html';
+   //alert('Record Deleted Successfully!');
+
+}
+
+  //
+
+</script>
+
+</body>
+</html>
+

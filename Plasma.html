@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plasma</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase.js"></script>
+
+    
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/style.css">
+	<style>
+body {
+  background-image: url("images/background-img.jpg");
+  background-repeat: no-repeat;
+}
+
+:root{
+    --blue:#3c6382;
+    --dark-blue:#0a3d62;
+}
+
+.btn{
+    display: inline-block;
+    padding: .2rem 1rem;
+    color:#fff;
+    background:var(--blue);
+    border-radius: .5rem;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+    margin-top: 1rem;
+    font-size: 1.5rem;
+}
+
+.dbtn{
+    display: inline-block;
+    padding:.7rem 3rem;
+    color:#fff;
+    background:var(--blue);
+    border-radius: .5rem;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+    margin-top: 2rem;
+    font-size: 2rem;
+    margin-right: 4rem;
+}
+
+
+
+.heading h3{
+    font-size: 2.5rem;
+    color:var(--blue);
+    
+}
+
+
+</style>
+
+</head>
+<body>
+    
+<!-- header section starts  -->
+
+<header>
+
+    <a href="index.html" style="text-decoration:none;" class="logo">Pune c<span class="fas fa-virus"></span>vid Care</a>
+
+    <div id="menu" class="fas fa-bars"></div>
+
+    <nav class="navbar">
+        <a href="beds.html">Beds</a>
+        <a class="active" href="#Plasma">Plasma</a>
+        <a href="TestCenters.html">Testing Centers</a>
+        <a href="Ambulance.html">Ambulance</a>
+        <a href="24x7 Helpline.html">24x7 Helpline</a>
+        <a href="Remdesivir.html">Remdesivir Information</a>
+		<a href="Tiffin.html">Tiffin/Food</a>
+		
+    </nav>
+
+</header>
+
+<!-- header section ends -->
+
+<section class="doctor" id="Plasma">
+
+<div class="alert alert-warning"><center><h5>
+    Data may be delayed or partial. Please verify with the hospital.</h5></center></div>
+    <center><a style="text-decoration:none; color: white;" href="donatePlasma.html" class="dbtn">Donate Plasma</a>
+    <a style="text-decoration:none; color: white;" href="showDonors.html" class="dbtn">Show Plasma</a>
+    <a style="text-decoration:none; color: white;" href="deletePlasma.html" class="dbtn">Delete Record</a>
+</center>
+<br>
+<div class="box-container">
+        
+        <div class="heading">
+<center><h3><b>Blood Banks</b></h3></center>
+</div>
+        <div class="box">	
+            
+            <span><strong>M/s Pimpri Chinchwad Blood Bank</strong></span><br>
+            <span>7559419137</span><br>
+            <span>bloodbankpc@gmail.com</span><br>
+
+            <span>Mhada commercial complex,2nd floor above dakshin hotelSant Tukaram Nagar, Pimpri, Pune, Maharashtra</span><br>
+            <span><a href="https://goo.gl/maps/Yc87d92MDyhcUWtg7" class="btn" target="_blank">Directions</a>
+            </span>
+        </div>
+
+        <div class="box">   
+            
+            <span><strong>Sanjeevani Blood Bank Bhosari</strong></span><br>
+            <span>7756873333, 8070104104</span><br>
+            <span>pransanjeevanibb@gmail.com</span><br>
+
+            <span>690, 2nd floor, Shine Grand, above Saraswat Bank, Shital Baugh Soc., Bhosari, Pune, Maharashtra</span><br>
+            <span><a href="https://g.page/sanjeevaniBloodBank?share" class="btn" target="_blank">Directions</a>
+            </span>
+        </div>
+
+        <div class="box">   
+            
+            <span><strong>Morya Blood Bank</strong></span><br>
+            <span>9975564130, 02027462000</span><br>
+            <span>morayabloodbank7@gmail.com</span><br>
+
+            <span>N.B.Engineers, Plot No.Se/1/1-1, D-11, Block, MIDC, Near Mohan Nagar, CHINCHWAD, Pune, Maharashtra</span><br>
+            <span><a href="https://goo.gl/maps/SCtxyEFZXsxHy9oD8" class="btn" target="_blank">Directions</a>
+            </span>
+        </div>
+
+        <div class="box">   
+            
+            <span><strong>Red Plus Blood Bank Pune</strong></span><br>
+            <span>020-27112365 / 27112333, 9921166011</span><br>
+            <span>redplusbloodbank@gmail.com</span><br>
+
+            <span>Sr.No.952 to 958, Hiraratan Building., 1st floor, Near PMT Bus Stop, Bhosari, Pune, Pune, Maharashtra</span><br>
+            <span><a href="https://goo.gl/maps/qmg1T7iSUzPckdqp7" class="btn" target="_blank">Directions</a>
+            </span>
+        </div>
+
+        <div class="box">   
+            
+            <span><strong>Aditya Birla Memorial Hospital Blood Bank</strong></span><br>
+            <span>020-30717664</span><br>
+            <span>rpsingh008@gmail.com</span><br>
+
+            <span>Aditya Birla Memorial Hospital Marg, Survey No:31, Near Morya Mangal Karyalay, Thergaon, Chinchwad,, RESIDENTIAL COMPLEX, THERGAON, PUNE, Pune, Maharashtra</span><br>
+            <span><a href="https://goo.gl/maps/DFE3CVBh4CxHGQ1t9" class="btn" target="_blank">Directions</a>
+            </span>
+        </div>
+
+        <div class="box">   
+            
+            <span><strong>Deenanath Mangeshkar Hospital, Blood Bank</strong></span><br>
+            <span>9822545665,4015196211007/1008</span><br>
+            <span>bloodbank@dmhospital.org</span><br>
+
+            <span>Erandawane, Near Mhatre Bridge,, PUNE, Pune, Maharashtra</span><br>
+            <span><a href="https://goo.gl/maps/Y3JmhoyFyGeFaopt8" class="btn" target="_blank">Directions</a>
+            </span>
+        </div>
+
+        <div class="box">   
+            
+            <span><strong>Rotary Blood Bank</strong></span><br>
+            <span>7756873333</span><br>
+            <span>rotarybloodbank2017@gmail.com</span><br>
+
+            <span>18, Mahesh Society, Gopalwadi Road, Daund, Dist. Pune, Pune, Pune, Maharashtra</span><br>
+            <span><a href="https://goo.gl/maps/9vV5HaTWwhbz3NfU7" class="btn" target="_blank">Directions</a>
+            </span>
+        </div>
+
+        <div class="box">   
+            
+            <span><strong>Chakan Blood Bank</strong></span><br>
+            <span>9975564130,9021868968</span><br>
+            <span>bloodbankchakan@gmail.com</span><br>
+
+            <span>Sr. No. 4976/1/2 Gate No.2401, Yashwantnagar Ambethan Road. A/P Chakan, Tal.khed,, Pune, Pune, Maharashtra</span><br>
+            <span><a href="https://goo.gl/maps/XB3CTfhJfRuf1mYu7" class="btn" target="_blank">Directions</a>
+            </span>
+        </div>
+
+        <div class="box">   
+            
+            <span><strong>KEM Hospital Blood Bank</strong></span><br>
+            <span>9823955650, 9960839347</span><br>
+            <span>mathurabloodbank@gmail.com</span><br>
+
+            <span>Sardar Moodliar Road, Rastha Peth,, Pune, Pune, Maharashtra</span><br>
+            <span><a href="https://goo.gl/maps/JTfrKWEpRFnhKhS46" class="btn" target="_blank">Directions</a>
+            </span>
+        </div>
+
+        <div class="box">   
+            
+            <span><strong>Padmashree Dr.D.Y Patil (Vishweshwar) Blood Bank</strong></span><br>
+            <span>9561792418,020-27423844</span><br>
+            <span>vishweshwar.vbb@rediffmail.com</span><br>
+
+            <span>Padmashree, Dr. Dy. Patil Medical College Hospital , Sant Tukaram Nagar, Pimpari,, Pune, Pune, Maharashtra</span><br>
+            <span><a href="https://goo.gl/maps/UXHhpWTG295itqRQ7" class="btn" target="_blank">Directions</a>
+            </span>
+        </div>
+
+        <div class="box">   
+            
+            <span><strong>Indian Serological Institute Blood Bank</strong></span><br>
+            <span>020-24535244, 9096039023</span><br>
+            <span>isibloodbank@rediffmail.com</span><br>
+
+            <span>21, Anand Baugh, Navi Peth, Near Vaikunth,, Pune, Pune, Maharashtra</span><br>
+            <span><a href="https://goo.gl/maps/x68tZ2V5Gqi7EV8aA" class="btn" target="_blank">Directions</a>
+            </span>
+        </div>
+
+        <div class="box">   
+            
+            <span><strong>MIMER Medical College and Garware Blood Bank</strong></span><br>
+            <span>8087099051</span><br>
+            <span>kumarpr56@gmail.com</span><br>
+
+            <span>Near HP Gas godown, Talegaon Chakan Road, Talegaon Dabhade , Pune, Pune, Maharashtra</span><br>
+            <span><a href="https://goo.gl/maps/zdQqgVpES4GK9Nxr7" class="btn" target="_blank">Directions</a>
+            </span>
+        </div>
+
+        <div class="box">   
+            
+            <span><strong>Poona Serological Institute Blood Bank</strong></span><br>
+            <span>9225507815,020-26133387/26141719</span><br>
+            <span>psibbpune@gmail.com</span><br>
+
+            <span>C.T.S. No-592,3rd Floor,Dhanwantari Complex, Near Tarachand Hosp, Rasta Peth,, Pune, Pune, Maharashtra</span><br>
+            <span><a href="https://goo.gl/maps/j8Fp7o3Zoe7z7xtB8" class="btn" target="_blank">Directions</a>
+            </span>
+        </div>
+
+        <div class="box">   
+            
+            <span><strong>Chattrapati Shahu Maharaj Aadhar Blood Bank</strong></span><br>
+            <span>020 24362266</span><br>
+            <span>patilsuresh9@gmail.com</span><br>
+
+            <span>S.NO. 30, PLOT NO.11, “WARIS HEIGHTS” 4TH office no: 401,402,403 & 5TH FLOOR, OFF. NO. 502, Waris Heights, PUNE SATARA ROAD, DHANKWADI,, Pune, Pune, Maharashtra</span><br>
+            <span><a href="https://goo.gl/maps/dJGHZZVFKiM8MvDF7" class="btn" target="_blank">Directions</a>
+            </span>
+        </div>
+
+        <div class="box">   
+            
+            <span><strong>Indian Red Cross Society, (Late Manikbai Chandulal Saraf ) Blood Bank, Pune</strong></span><br>
+            <span>9422333287, 02112-222951/320910</span><br>
+            <span>ircsbbbaramati@gmail.com</span><br>
+
+            <span>Near Govt. Silver Jubilee Hospital, Patas Road Baramati,, Baramati, Pune, Maharashtra</span><br>
+            <span><a href="https://goo.gl/maps/oUfRLtxRbHJG1dnA6" class="btn" target="_blank">Directions</a>
+            </span>
+        </div>
+
+        <div class="box">   
+            
+            <span><strong>Pimpari Serological Institute Blood Bank</strong></span><br>
+            <span>98226565020179, 27422279</span><br>
+            <span>psibbpimpri@gmail.com</span><br>
+
+            <span>Esteem Tower, opp K.S.B Pump, Pune-Mumbai Highway, Kharalwadi, Pimpari, Pune, Pune, Maharashtra</span><br>
+            <span><a href="https://goo.gl/maps/BSNdHwyqU2Hsq5uX7" class="btn" target="_blank">Directions</a>
+            </span>
+        </div>
+
+        <div class="box">   
+            
+            <span><strong>Sadhu Vaswani Mission Medical Complex, Inlaks & Budharani Hospital Blood Bank, Pune</strong></span><br>
+            <span>9373510112,020-66099727</span><br>
+            <span>abarte2010@gmail.com</span><br>
+
+            <span>7-9, Koregaon Park,, Pune, Pune, Maharashtra</span><br>
+            <span><a href="https://goo.gl/maps/G1CsBHmi6MPBppWB7" class="btn" target="_blank">Directions</a>
+            </span>
+        </div>
+
+        <div class="box">   
+            
+            <span><strong>Pimpri Chinchwad Municipal Corporation's Y.C.M. Hospital Blood Bank</strong></span><br>
+            <span>9823038155</span><br>
+            <span>bloodbank@pcmcindia.gov.in</span><br>
+
+            <span>Ground floor of Y.C.M. Hospital, Sant Tukaram Nagar, Pimpri, Pune, Pune, Pune, Maharashtra</span><br>
+            <span><a href="https://goo.gl/maps/od2P6YSa8Yeczrku8" class="btn" target="_blank">Directions</a>
+            </span>
+        </div>
+
+        <div class="box">   
+            
+            <span><strong>Sasoon Blood Bank pune</strong></span><br>
+            <span>020-2612-8000 Ext-332-364</span><br>
+            <span>bjmc.bloodbank@gmail.com</span><br>
+
+            <span>Ground Floor,Section 5, Opp.Ambedkar Chawk,Station Rd,, Pune, Pune, Maharashtra</span><br>
+            <span><a href="https://goo.gl/maps/S3D4NYf22vYCXpRM8" class="btn" target="_blank">Directions</a>
+            </span>
+        </div>
+
+        <div class="box">   
+            
+            <span><strong>Acharya Anandrishiji Blood Bank, Pune</strong></span><br>
+            <span>8554909040,020-24537627</span><br>
+            <span>aapunebloodbank@gmail.com</span><br>
+
+            <span>191/192, Sadashiv Peth, S.M.Joshi Foundation Bldg. Near Patrakar Bhavan,, Pune, Pune, Maharashtra</span><br>
+            <span><a href="https://goo.gl/maps/twJfdnPpDzcYgwwj7" class="btn" target="_blank">Directions</a>
+            </span>
+        </div>
+
+        <div class="box">   
+            
+            <span><strong>Jehangir Hospital Blood Bank</strong></span><br>
+            <span>8888821008,020-66811722 / 66811723</span><br>
+            <span>bloodbank@jehangirhospital.com</span><br>
+
+            <span>32, Sasoon Road,, Pune, Pune, Pune, Maharashtra
+</span><br>
+            <span><a href="https://g.page/Jehangir-Hospital-Pune?share" class="btn" target="_blank">Directions</a>
+            </span>
+        </div>
+
+        <div class="box">   
+            
+            <span><strong>Grant Medical Foundation, A.H. Wadia Trust Blood Bank</strong></span><br>
+            <span>9890148566,020-26166318</span><br>
+            <span>bloodbank@rubyhall.com</span><br>
+
+            <span>40, Sassoon Road, Ruby Hall Clinic, Post Box No. 70,, Pune, Pune, Maharashtra</span><br>
+            <span><a href="https://goo.gl/maps/zoCYfPieULdNKJ5Y8" class="btn" target="_blank">Directions</a>
+            </span>
+        </div>
+
+        <div class="box">   
+            
+            <span><strong>M/s Bharati Vidyapeeth Medical Foundations Bharati Hospital Blood Bank</strong></span><br>
+            <span>9420320999,020-40555555 Ext-115</span><br>
+            <span>bhbloodbank@gmail.com</span><br>
+
+            <span>1st Floor, of Bharati Hospital, Bharati Vidyapeeth S.No. 28, Dhankawadi Campus, Pune- Satara Road,, Pune, Pune, Maharashtra</span><br>
+            <span><a href="https://goo.gl/maps/ntUwMniuj72UTVDz5" class="btn" target="_blank">Directions</a>
+            </span>
+        </div>
+
+        <div class="box">   
+            
+            <span><strong>Akshay Blood Bank</strong></span><br>
+            <span>970895533, 9552312345,020-26993247</span><br>
+            <span>akshaybloodbankpune@gmail.com</span><br>
+
+            <span>Shree Mangal Building, S.No.10A, Hissa No.2A/3, Unnati Nagar, Opp. Bunter School, Saswad Road, Hadapsar,, Pune, Pune, Maharashtra</span><br>
+            <span><a href="https://goo.gl/maps/JkGQr1xvskCw1YLK8" class="btn" target="_blank">Directions</a>
+            </span>
+        </div>
+
+        <div class="box">   
+            
+            <span><strong>Pune Chest & General Hospital Blood Bank, Pune</strong></span><br>
+            <span>8857077981, 865748749, 9604871471</span><br>
+            <span>csaundhpune@yahoo.co.in</span><br>
+
+            <span>Aundh Camp,, Pune, Pune, Maharashtra</span><br>
+            <span><a href="https://goo.gl/maps/Vk39BBXYUAt9QRzR8" class="btn" target="_blank">Directions</a>
+            </span>
+        </div>
+
+        <div class="box">   
+            
+            <span><strong>Symbiosis University Hospital and Research Center Blood Bank of Symbiosis Trust</strong></span><br>
+            <span>8087072212</span><br>
+            <span>bloodbnk@suhrc.siu,edu.in</span><br>
+
+            <span>Room No.1806,Block B, Ground Floor, Gat No.936/1 & 936/2, At post- Lavale, , Mulshi, Pune, Pune, Pune, Maharashtra</span><br>
+            <span><a href="https://goo.gl/maps/UE1GJCWE7zqtt52n6" class="btn" target="_blank">Directions</a>
+            </span>
+        </div>
+
+        <div class="box">   
+            
+            <span><strong>Smt Kashibai Navale General Hospital Blood Bank</strong></span><br>
+            <span>9370146779,020/24106229/109/140</span><br>
+            <span>drharke@sknmcgh.org</span><br>
+
+            <span>Sr. No. 50/15 building NO.5 2nd floor, Narhe, Ambegaon,, Pune, Pune, Maharashtra</span><br>
+            <span><a href="https://goo.gl/maps/KPdVSe6yfao9uCWEA" class="btn" target="_blank">Directions</a>
+            </span>
+        </div>
+
+        <div class="box">   
+            
+            <span><strong>Konkan Mitra Mandal Medical Trust's Sahyadri Speaciality Hospital Blood Bank</strong></span><br>
+            <span>9673338405 / 9850540682 / 9422548833</span><br>
+            <span>labqm@sahyadrihospitals.com</span><br>
+
+            <span>Plot No-30 C, Erandvane, Karve Road,, Pune, Pune, Maharashtra</span><br>
+            <span><a href="https://g.page/sahyadri-hospital-deccangymkhana?share" class="btn" target="_blank">Directions</a>
+            </span>
+        </div>
+
+        <div class="box">   
+            
+            <span><strong>Noble Charitable Trust’s Noble Blood Bank</strong></span><br>
+            <span>9011689494,020-66285050/5051</span><br>
+            <span>dramatesc@rediffmail.com</span><br>
+
+            <span>B-007, Basement c/o Noble Hospital, 153 Magarpatta city Road, Hadapsar,, Pune, Pune, Maharashtra</span><br>
+            <span><a href="https://goo.gl/maps/sPacGRMLxxEuniiKA" class="btn" target="_blank">Directions</a>
+            </span>
+        </div>
+
+        <div class="box">   
+            
+            <span><strong>Rakesh Jain Memorial Blood Bank</strong></span><br>
+            <span>9689947454,020-24331706 / 66069000</span><br>
+            <span>phrcjr@gmail.com</span><br>
+
+            <span>Poona Hospital & Reserch Centre 27, Sadashiv Peth,, Pune, Pune, Maharashtra</span><br>
+            <span><a href="https://goo.gl/maps/mJXgce2FuEYho88J9" class="btn" target="_blank">Directions</a>
+            </span>
+        </div>
+
+        <div class="box">   
+            
+            <span><strong>Jankalyan Raktapedhi Pune</strong></span><br>
+            <span>9527768755,020-24449527/ 24444502</span><br>
+            <span>Janrakta@gmail.com</span><br>
+
+            <span>1003, Shukrawar Peth, Swargate - Saras Baugh Road, Near. Natraj Hotel,, Pune, Pune, Maharashtra</span><br>
+            <span><a href="https://goo.gl/maps/hSnyYuxEHF3yzHTd7" class="btn" target="_blank">Directions</a>
+            </span>
+        </div>
+
+        <div class="box">   
+            
+            <span><strong>Jupiter Lifeline Hospital Blood Bank</strong></span><br>
+            <span>99860816708, 020-27992799</span><br>
+            <span>bloodbank.pune@jupiterhospital.com</span><br>
+
+            <span>Jupiter Lifeline Hospital, Second Floor, Near Prathmesh Park, Baner – Pimple Nilakh Road,, Pune, Pune, Maharashtra</span><br>
+            <span><a href="https://g.page/Jupiterhospitalpune?share" class="btn" target="_blank">Directions</a>
+            </span>
+        </div>
+
+        <div class="box">   
+            
+            <span><strong>Girija Blood Bank</strong></span><br>
+            <span>9665555498</span><br>
+            <span>girijabloodbank@gmail.com</span><br>
+
+            <span>s. H. 8, Hissa No 8, ground floor, Giriraj Nursing college, Indapur Road, Baramati, Pune, Maharashtra</span><br>
+            <span><a href="https://goo.gl/maps/RSxg8UTd5KZFnpBo7" class="btn" target="_blank">Directions</a>
+            </span>
+        </div>
+
+        <div class="box">   
+            
+            <span><strong>Pune Blood Bank</strong></span><br>
+            <span>9075653410</span><br>
+            <span>punebloodbank@gmail.com</span><br>
+
+            <span>Orient villa , serve no 266, plot no 6 , Hadapsar Pune, Pune, Pune, Maharashtra</span><br>
+            <span><a href="https://goo.gl/maps/LZTKo9NC2b58yhM9A" class="btn" target="_blank">Directions</a>
+            </span>
+        </div>
+
+        <div class="box">   
+            
+            <span><strong>M/s Vidyashree Charitable Trusts Om Blood Bank</strong></span><br>
+            <span>09665012355,08149508080 / 7304101080</span><br>
+            <span>muneshkolhe@rediffmail.com</span><br>
+
+            <span>Upper Ground Floor, CTs No.61/1, Maruti Heights, Mangalwar Peth,, Pune, Pune, Maharashtra</span><br>
+            <span><a href="https://goo.gl/maps/KrBqRFPGmPiwk1aQ9" class="btn" target="_blank">Directions</a>
+            </span>
+        </div>
+    </div>
+</section>
+
+
+<!-- jquery cdn link  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<!-- custom js file link  -->
+<script src="js/script.js"></script>
+
+
+</body>
+</html>

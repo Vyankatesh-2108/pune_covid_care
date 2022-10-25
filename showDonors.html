@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Plasma Donors</title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+ 
+<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-database.js"></script>
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/table.css">
+	<style>
+body {
+  background-image: url("images/background-img.jpg");
+}
+
+.heading h3{
+    margin-top: 2.5rem;
+    margin-bottom: -5rem;
+    font-size: 2.5rem;
+    color:var(--blue);
+    font-weight: bold;
+    
+}
+
+#myInput {
+  background-image: url('images/search.png');
+  background-position: 5px 5px;
+  background-repeat: no-repeat;
+  width: 85%;
+  font-size: 16px; 
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom:-12px;
+  margin-top: 80px;
+}
+</style>
+
+</head>
+<body>
+    
+<!-- header section starts  -->
+
+<header>
+
+    <a href="index.html" style="text-decoration:none;" class="logo">Pune c<span class="fas fa-virus"></span>vid Care</a>
+
+    <div id="menu" class="fas fa-bars"></div>
+
+    <nav class="navbar">
+        <a href="beds.html">Beds</a>
+        <a class="active" href="#Plasma">Plasma</a>
+        <a href="TestCenters.html">Testing Centers</a>
+        <a href="Ambulance.html">Ambulance</a>
+        <a href="24x7 Helpline.html">24x7 Helpline</a>
+        <a href="Remdesivir.html">Remdesivir Information</a>
+        <a href="Tiffin.html">Tiffin/Food</a>
+        
+    </nav>
+
+</header>
+
+<!-- header section ends -->
+
+
+
+        
+
+<section class="doctor" id="Plasma">
+<div class="heading">
+<center><h3>Plasma Donors List</h3></center>
+</div>
+<center>
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by Blood Group ...." >
+    
+    
+<table class="content-table" id="myTable">
+    <thead>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Gender</th>
+        <th>BloodGroup</th>
+        <th>RecoveryDate</th>
+        <th>Phone</th>
+        <th>AltPhone</th>
+        <th>Email</th>
+        <th>Locality</th>
+    </thead>
+    <tbody id="tbody1">
+    </tbody>
+</table>
+</center>
+
+</section>
+
+<script type="text/javascript">
+const firebaseConfig = {
+  apiKey: "AIzaSyBIb4a8tynv4206X1bstUtd0dyX4DlSDkg",
+  authDomain: "pune-covid-care.firebaseapp.com",
+  databaseURL: "https://pune-covid-care-default-rtdb.firebaseio.com",
+  projectId: "pune-covid-care",
+  storageBucket: "pune-covid-care.appspot.com",
+  messagingSenderId: "318732941809",
+  appId: "1:318732941809:web:ef9d4a718d4beaec112c50",
+  measurementId: "G-YPYP520N4W"
+};
+firebase.initializeApp(firebaseConfig);
+
+function SelectAllData(){
+    firebase.database().ref("Plasma Donors").once("value",
+        function(AllRecords){
+            AllRecords.forEach(
+                function(CurrentRecord){
+                    var name = CurrentRecord.val().Name;
+                    var age = CurrentRecord.val().Age;
+                    var gender = CurrentRecord.val().Gender;
+                    var bg = CurrentRecord.val().BloodGroup;
+                    var rdate = CurrentRecord.val().RecoveryDate;
+                    var phone = CurrentRecord.val().Phone;
+                    var phone2 = CurrentRecord.val().AltPhone;
+                    var email = CurrentRecord.val().Email;
+                    var locality = CurrentRecord.val().Locality;
+                    AddItemsToTable(name,age,gender,bg,rdate,phone,phone2,email,locality); 
+                } 
+
+        );
+});
+}
+
+window.onload = SelectAllData;
+
+function AddItemsToTable(name,age,gender,bg,rdate,phone,phone2,email,locality){
+    var tbody = document.getElementById("tbody1");
+    var trow = document.createElement("tr");
+    var td1 = document.createElement("td");
+    var td2 = document.createElement("td");
+    var td3 = document.createElement("td");
+    var td4 = document.createElement("td");
+    var td5 = document.createElement("td");
+    var td6 = document.createElement("td");
+    var td7 = document.createElement("td");
+    var td8 = document.createElement("td");
+    var td9 = document.createElement("td");
+    td1.innerHTML = name;
+    td2.innerHTML = age;
+    td3.innerHTML = gender;
+    td4.innerHTML = bg;
+    td5.innerHTML = rdate;
+    td6.innerHTML = phone;
+    td7.innerHTML = phone2;
+    td8.innerHTML = email;
+    td9.innerHTML = locality;
+
+    trow.appendChild(td1);
+    trow.appendChild(td2);
+    trow.appendChild(td3);
+    trow.appendChild(td4);
+    trow.appendChild(td5);
+    trow.appendChild(td6);
+    trow.appendChild(td7);
+    trow.appendChild(td8);
+    trow.appendChild(td9);
+
+    tbody.appendChild(trow);
+}
+</script>
+
+<script>
+function myFunction() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[3];
+
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+</script>
+
+<!-- jquery cdn link  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<!-- custom js file link  -->
+<script src="js/script.js"></script>
+
+
+</body>
+</html>
